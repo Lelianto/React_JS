@@ -20,22 +20,23 @@ class Header extends React.Component {
                     <div className="col-md-4 category">
                         <nav>
                             <ul className="list-unstyled">
-                                <li className="navi">SepakBola</li>
-                                <li className="navi">Ekonomi</li>
-                                <li className="navi">Politik</li>
-                                <li className="navi">Hiburan</li>
                                 <li className="navi">
-                                    <div className="btn-group">
-                                        <button className="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Lainnya
-                                        </button>
-                                        <div className="dropdown-menu">
-                                            <a className="dropdown-item" href="#">SepakBola</a>
-                                            <a className="dropdown-item" href="#">Ekonomi</a>
-                                            <a className="dropdown-item" href="#">Politik</a>
-                                            <div className="dropdown-divider"></div>
-                                            <a className="dropdown-item" href="#">Hiburan</a>
-                                        </div>
+                                    <a href="">SepakBola</a></li>
+                                <li className="navi">
+                                    <a href="">Ekonomi</a></li>
+                                <li className="navi">
+                                    <a href="">Politik</a></li>
+                                <li className="navi">
+                                    <a href="">Hiburan</a></li>
+                                <li className="navi">
+                                <div class="dropdown">
+                                    <button class="dropbtn">
+                                        <a href="">Lainnya</a></button>
+                                    <div class="dropdown-content">
+                                        <a href="#">Bisnis</a>
+                                        <a href="#">Pendidikan</a>
+                                        <a href="#">Pemerintahan</a>
+                                    </div>
                                     </div>
                                 </li>
                             </ul>
@@ -52,8 +53,10 @@ class Header extends React.Component {
                     <div className="col-md-2 user_in">
                         <nav>
                             <ul className="list-unstyled navigate">
-                                <li className="navi1">Masuk</li>
-                                <li className="navi1">Daftar</li>
+                                <li className="navi1">
+                                    <a href="">Masuk</a></li>
+                                <li className="navi1">
+                                    <a href="">Daftar</a></li>
                             </ul>
                         </nav>
                     </div>

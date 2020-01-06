@@ -3,7 +3,7 @@ import '../styles/main.css';
 import '../styles/bootstrap.min.css'
 
 let title_list = [
-    'Gabung ALpha Tech Academy Sekarang!',
+    'Gabung Alpha Tech Academy Sekarang!',
     'Ada apa antara Kobar dan Hasan?',
     'Mengenal Arafat sang Master Pyhton',
     'Belajar reactJs itu seru. Kamu setuju?',
@@ -32,7 +32,7 @@ class NewsList extends React.Component {
                             </div>
                             <p></p>
                             <div className="col-12">
-                                <p className="news_title">{title_list[i]} </p> 
+                                <a href="" className="news_title">{title_list[i]} </a> 
                             </div>
                         </div>
                     </div>
