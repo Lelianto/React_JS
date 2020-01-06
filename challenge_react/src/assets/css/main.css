@@ -1,0 +1,625 @@
+@font-face {
+    font-family: "SFCompactDisplay";
+    src: url("../font-sf/SF-Compact-Display-Regular.ttf")format("truetype")
+}
+/* ini untuk header*/
+header {
+    border-bottom: 1px solid rgb(204, 189, 189);
+    padding-top: 10px;
+    padding-bottom: 15px;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right:0;
+    z-index: 2;
+    -webkit-box-shadow: 0px 3px 6px 2px rgba(193,195,199,1);
+    -moz-box-shadow: 0px 3px 6px 2px rgba(193,195,199,1);
+    box-shadow: 0px 3px 6px 2px rgba(193,195,199,1);
+}
+
+header nav {
+    padding-top: 25px;
+    margin-right: 88px;
+}
+
+header li {
+    display: inline;
+    margin-right: 32px;
+    padding-left: 8px;
+}
+header a {
+    color:#19345E;
+    font-family:"Muli";
+    font-weight: bold;
+    text-decoration: none;
+}
+header a:hover {
+    color:#F47522;
+    font-family:"Muli";
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* di sini untuk page 1 */
+/* tambahan header untuk page 1*/
+
+.App .home:hover {
+    font-family: "Muli";
+    color: #F47522;
+    text-decoration: none;
+}
+.App .home {
+    font-family: "Muli";
+    color: #F47522;
+    text-decoration: none;
+}
+
+/* isi page 1*/
+.App body {
+        background: url(/static/media/back1.4ab5fa88.png);
+        background-size: cover;
+        z-index: 0;
+        position: relative;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+}
+/* .App .align-items-center */
+.App .photo {
+    position: absolute;
+}
+.App .intro {
+    font-family: "Roboto";
+    font-size: 25px;
+    color: #19345E;
+}
+
+.App .intro1 {
+    font-family: "Roboto";
+    font-size: 85px;
+    font-weight: bold;
+    margin-top: -30px ;
+    color: #19345E;
+}
+
+.App .intro2 {
+    font-family: "Roboto";
+    font-size: 35px;
+    margin-top: -30px ;
+    color: #19345E;
+}
+
+.App .align-items-center {
+    margin-top: 150px;
+}
+
+.App .button {
+    border-radius: 50px;
+    padding: 10px 35px;
+    background-color: #F47522;
+    font-family: "Roboto";
+    color: white;
+    font-size: 16px;
+}
+
+.App .button:hover {
+    background-color: white;
+    font-family: "Roboto";
+    color: #F47522;
+    text-decoration: none;
+}
+
+/* di sini untuk page 2 */
+/* tambahan header untuk page 2*/
+.page2  .about:hover {
+    font-family: "Muli";
+    color: #F47522;
+    text-decoration: none;
+}
+.page2 .about {
+    font-family: "Muli";
+    color: #F47522;
+    text-decoration: none;
+}
+
+/* isi page 2*/
+.page2 .pertama{
+    background-color: #F4F7FC;
+    color: black;
+    margin-top:68px;
+    padding-bottom: 45px;
+}
+.page2 .pertama h1{
+    padding-top :70px;
+    color: #19345E;
+    font-family: "roboto";
+    font-weight: bold;
+}
+.page2 .kedua table,td,th{
+    border: 1px solid #707070;
+    text-align: left;
+    font-size: 13px;
+    color: #19345E;
+    padding-left: 10px;
+}
+.page2 .kedua nav{
+    font-family: "roboto";
+    padding-top: 35px;
+}
+.page2 .kedua h3{
+    padding-top: 45px;
+    font-weight: bold;
+    color: #19345E;
+}
+.page2 .kedua div p{
+    margin: 0;
+    font-weight: bold;
+    color: #19345E;
+}
+.page2 .start-table{
+    padding-top: 35px;
+}
+.page2 .start-table p{
+    padding-bottom: 20px;
+}
+
+.page2 table .one{
+    padding-right:40px;
+    font-weight: normal;
+}
+.page2 table .two{
+    padding-right: 60px;
+    font-weight: normal;
+}
+.page2 table .three{
+    padding-right: 100px;
+    font-weight: normal;
+}
+.page2 table{
+    margin-bottom: 100px;
+}
+.page2 .ketiga img{
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    padding-left: 150px;
+    padding-right: 100px;
+    border-radius: 10%;
+    position: relative;
+}
+.page2 .keempat img{
+    width: 18%;
+    height: 18%;
+    top: 265px;
+    left: 122px;
+    position: absolute;
+}
+
+.page2 .list-study {
+    margin-left: -25px;
+}
+
+/* di sini untuk page 3 */
+.page3{
+    font-family: "Muli";
+}
+.page3 .img-logo{
+    background-image: url(../img/page3/side_photo.jpg) ;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+.page3 .img-logo img{
+    position: absolute;
+    top: 270px;
+    left: 130px;
+    width: 49%;
+}
+.page3 .gambar{
+    height: 100vh;
+}
+.page3 input{
+    border: 1px solid grey;
+    border-radius: 5px ;
+}
+.page3 input:focus{
+    border: 2px solid #19345E;
+    border-radius: 5px ;
+}
+.page3 h5{
+    padding-top: 20px;
+}
+.page3 .star{
+    color: red;
+    font-size:14px;
+}
+.page3 .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.65;
+    background-color: #19345e;
+}
+.page3 .role option{
+    width: 287px;
+    height: 100px;
+}
+.page3 .blur{
+    color: #D5D5D5;
+}
+.page3 .input input{
+    width: 315px;
+    height: 46px;
+    font-size: 16px;
+    letter-spacing: 0;
+    color: #19345E;
+    opacity: 1;
+    padding: 20px;
+}
+.page3 .bio input{
+    width: 315px;
+    height: 80px;
+}
+.page3 .submit input{
+    border-radius: 100px;
+    width: 118px;
+    height: 31px;
+    background: #F47522 0% 0% no-repeat padding-box;
+    border: 2px solid #F47522;
+    opacity: 1;
+    color: white;
+    text-align: center;
+    font-size: 13px;
+    
+}
+.page3 .kedua label{
+    padding-top: 15px;
+}
+.page3 .kedua{
+    padding-left: 80px;
+}
+
+/* di sini untuk page 4 */
+/* tambahan header untuk page 4*/
+.page4 .exp:hover {
+    font-family: "Muli";
+    color: #F47522;
+    text-decoration: none;
+}
+.page4 .exp {
+    font-family: "Muli";
+    color: #F47522;
+    text-decoration: none;
+}
+
+
+
+/* isi page 4*/
+.page4 {
+    margin: 3 px;
+    padding: 0;
+}
+
+.page4 body {
+    background-color: white;
+    position: relative;
+    z-index: 0;
+}
+
+
+.page4 .experience {
+    color: #19345E;
+    font-family:"Muli";
+    font-size: 40px;
+    font-weight: bold;
+    padding-left: 13px;
+}
+
+.page4 .container-fluid {
+    margin-top: 127px;
+
+}
+
+.page4 .experience1 {
+    background-color: #F4F7FC;
+    margin-top: -13px;
+    padding-top: 10px;
+    padding-bottom: 13px;
+}
+
+
+.page4 .dot {
+    width: 16px;
+    height: 16px;
+    background-color: #19345E;
+    border-radius: 50%;
+    position: absolute;
+    left: -120px;
+    top: 76px;
+}
+.page4 .st-line {
+    padding-right: 40px;
+    border-right: rgb(230, 221, 230) solid 1px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    z-index: 0;
+    opacity: 1;
+}
+
+.page4 .linetop {
+    border-top: thistle solid 1px;
+    padding-top: 5px;
+}
+
+.page4 .line {
+    margin-top: -18px;
+}
+
+.page4 article {
+    position: relative;
+    padding: 20px 20px 20px 20px;
+    margin-right: 155px;
+    box-shadow: -4px 6px 83px -52px rgba(131,118,227,1);
+    font-family: "SFCompactDisplay";
+    color: #19345E;
+    font-size: 15px;
+    box-shadow: 0px 0px 69px -63px rgba(34,30,64,0.5);
+    border-radius: 10px;
+    margin-bottom: 70px;
+    border: rgb(226, 227, 231) solid 0.5px;
+}
+
+.page4 h4 {
+    font-family: "Muli";
+    color: #19345E;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.page4 h5 {
+    font-family: "Muli";
+    color: #ACACAC;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.page4 .col-md-10 {
+    margin-top: 70px;
+}
+
+/*ini untuk footer*/
+footer {
+    left: 0;
+    bottom:0;
+    right: 0;
+    width: 100%;
+    height: 141px;
+    background-color: #19345E;
+}
+
+.foot1 {
+    padding-top: 35px;
+}
+
+.foot2 {
+    padding-top: 45px;
+    padding-left: 60px;
+    color: white;
+    font-family: "SFCompactDisplay";
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.foot3 {
+    margin-top: 45px;
+    padding-top: 15px;
+    font-family: "SFCompactDisplay";
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    padding-left: 140px;
+    border-left: rgb(114, 110, 110) solid 1px;
+}
+
+.img-f {
+    padding-left: 10px;
+}
+
+.social {
+    padding-left: 10px;
+    margin-bottom: 0px;
+}
+
+@media (max-width: 767px) {
+    .App .col-12 {
+
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 14px;
+    }
+    .App .intro {
+
+        font-family: "Roboto";
+        font-size: 40px;
+        color: #19345E;
+        padding-top: 50px;
+        margin-left: 85px;
+    
+    }
+
+    .App .container-fluid {
+
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 26px;
+        padding-top: 60px;
+    
+    }
+    .App .intro1 {
+
+        font-family: "Roboto";
+        font-size: 55px;
+        font-weight: bold;
+        margin-top: -30px;
+        color:#19345E;
+        margin-left: 80px;
+        padding-top: 20px;
+    
+    }
+
+    .App .intro2 {
+
+        font-family: "Roboto";
+        font-size: 35px;
+        margin-top: -30px;
+        color: #19345E;
+        margin-left: 80px;
+        padding-top: 20px;
+        padding-bottom: 14px;
+    
+    }
+
+    .App .button {
+
+        border-radius: 50px;
+        padding: 10px 35px;
+            padding-top: 10px;
+        background-color: #F47522;
+        font-family: "Roboto";
+        color: white;
+        font-size: 16px;
+        margin-left: 80px;
+        padding-top: 10px;
+    }
+
+    .page2 .col-12 {
+
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 14px;
+    }
+
+    .page2 .list-unstyled {
+
+        padding-left: 0;
+        list-style: none;
+        padding-left: 40px;
+    
+    }
+
+    .page2 .pertama h1 {
+
+        padding-top: 45px;
+        color: #19345E;
+        font-family: "roboto";
+        font-weight: bold;
+        padding-top: 115px;
+    
+    }
+
+    .page2 .foot3 {
+
+        font-family: "SFCompactDisplay";
+        font-size: 14px;
+        font-weight: bold;
+        color: white;
+        padding-left: 55px;
+        margin-top: 30px;
+    
+    }
+
+    .page2 .ketiga {
+
+            margin-bottom: 80px;
+            margin-top: -110px;
+        
+        }
+    .page2 .keempat {
+        margin-bottom: 20px;
+    }
+    .page2 .keempat img {
+
+        top: 180px;
+    }
+    .page3 .col-7 {
+        margin-top: 80px;
+    }
+    .page4 .col-12 {
+
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 14px;
+    }
+
+    .page4 .experience1 {
+
+        background-color: 
+    
+        #F4F7FC;
+        margin-top: 66px;
+        padding-top: 10px;
+        padding-bottom: 13px;
+        padding-left: 214px;
+    
+    }
+    .page4 .col-md-10 {
+
+        margin-top: -109px;
+    
+    }
+
+    .page4 article {
+        margin-right: 0px;
+    }
+
+    .page4 .col-3 {
+        border-left: #19345E solid 1px;
+        margin-top: -105px;
+        margin-bottom: 76px;
+    }
+    .page4 .dot {
+        top: 118px;
+        margin-left: -38px;
+    }
+
+    .page4 .foot3 {
+
+        font-family: "SFCompactReguler";
+        font-size: 14px;
+        font-weight: bold;
+        color: white;
+        padding-left: 55px;
+        margin-top: 30px;
+        border-left: none;
+    
+    }
+    .page4 .foot2 {
+        margin-left: -139px;
+    }
+    .page4 .social {
+
+        padding-left: 10px;
+        margin-bottom: 0px;
+        font-family: "SFCompactReguler";
+    
+    }
+    
+}
