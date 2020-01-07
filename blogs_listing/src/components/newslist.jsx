@@ -1,47 +1,87 @@
 import React from 'react';
 import '../styles/main.css';
 import '../styles/bootstrap.min.css'
-
-let title_list = [
-    'Gabung Alpha Tech Academy Sekarang!',
-    'Ada apa antara Kobar dan Hasan?',
-    'Mengenal Arafat sang Master Pyhton',
-    'Belajar reactJs itu seru. Kamu setuju?',
-    'Sudahkah kamu sehat mental?'
-]
+import axios from 'axios';
+import '../App.css';
+import logo from '../logo.svg';
+const apiKey = '5df2d02cbdb648bb8853f14401e283ab';
+const baseUrl = 'https://newsapi.org/v2/'
+const urlHeadline = baseUrl + 'top-headlines?country=id&apiKey=' + apiKey;
 
 class NewsList extends React.Component {
+    state = {
+        listNews: [],
+        isLoading: true
+    };
+
+    componentDidMount = () => {
+        const self = this
+        axios
+            .get(urlHeadline)
+            .then(function (response) {
+                self.setState({ listNews: response.data.articles, isLoading:false})
+            })
+            .catch(function (error){
+                self.setState({ isLoading: false})
+            })
+    };
     render (){
+        const { listNews, isLoading } = this.state;
+        console.log('cek', listNews)
+        const topHeadlines = listNews.filter(item => {
+            if (item.content !== null && item.image !== null) {
+                return item;
+            }
+            return false
+        });
+
+    const allTopList = topHeadlines.filter((element,i)=>(i<=4)).map((item, key) => {
         return (
             <div>
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="box_list">Berita Terkini</div>
-                    <a className="see_all" href="">Lihat Semua</a>
-                    </div>
-                </div>
-            </div>
-            <div className="container">
-            { title_list.map((element, i) =>
-                <div className="row">
-                    <div className="col-md-12">
                         <div className="box_list1">
                             <div className="col-12">
-                                <div className=" no_news">#{i+1}</div>
+                                <div className=" no_news">#{key+1}</div>
                             </div>
                             <p></p>
                             <div className="col-12">
-                                <a href="" className="news_title">{title_list[i]} </a> 
+                                <a href={item.url} className="news_title">{item.title} </a> 
                             </div>
                         </div>
                     </div>
                 </div>
-                )
+            </div>
+        </div>
+        )
+    }
+    )
+    return (
+          <div className="headlineNews">
+            {isLoading ? <div style={{ textAlign:'center'}}> 
+
+            <div className="App">
+                <div className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                </div>
+            </div>
+            
+            </div> : 
+            <div>
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="box_list">Berita Terkini</div>
+                        <a className="see_all" href="">Lihat Semua</a>
+                        </div>
+                    </div>
+                </div>
+             {allTopList}          
+            </div>
             }
             </div>
-            </div>
-        )
+    )
     }
 }
 
