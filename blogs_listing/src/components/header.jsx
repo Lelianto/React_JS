@@ -3,10 +3,21 @@ import '../styles/main.css';
 import '../styles/bootstrap.min.css'
 import logo from '../images/react.svg'
 import logo_search from '../images/search.png'
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import axios from 'axios'
+import PropTypes from "prop-types";
 
+const listCategory = ['sport','business','health']
 
 class Header extends React.Component {
+
+    handleSignOut = () => {
+        localStorage.removeItem("is_login");
+        this.props.history.push("/");
+      };
+
     render (){
+        const { clickTab } = this.props
         return (
         <header>
             <div className="container-fluid">
@@ -15,37 +26,45 @@ class Header extends React.Component {
                         <img className="logo-react" src={logo} alt="" />
                     </div>
                     <div className="col-md-1 logo-name">
-                        <h4>KabarKabar</h4>
+                        <Link to='/'> 
+                        <h4 style={{ textDecoration:"none", color:'black'}}>KabarKabar</h4>
+                        </Link>
                     </div>
                     <div className="col-md-4 category">
                         <nav>
                             <ul className="list-unstyled">
+                                {listCategory.map(category=>
+                                <li onClick={event => this.props.handleCategory(category)} className="navi"> 
+                                  <Link>{category}</Link></li>
+                                )}
                                 <li className="navi">
-                                    <a href="">SepakBola</a></li>
+                                    <Link to='/Profile'>Profile</Link></li>
                                 <li className="navi">
-                                    <a href="">Ekonomi</a></li>
-                                <li className="navi">
-                                    <a href="">Politik</a></li>
-                                <li className="navi">
-                                    <a href="">Hiburan</a></li>
-                                <li className="navi">
-                                <div class="dropdown">
-                                    <button class="dropbtn">
-                                        <a href="">Lainnya</a></button>
-                                    <div class="dropdown-content">
-                                        <a href="#">Bisnis</a>
-                                        <a href="#">Pendidikan</a>
-                                        <a href="#">Pemerintahan</a>
-                                    </div>
+                                    <div class="dropdown">
+                                        <button class="dropbtn">
+                                            <a href="">Lainnya</a></button>
+                                        <div class="dropdown-content">
+                                            <Link to='/lainnya/Bisnis'>Bisnis</Link>
+                                            <Link to='/lainnya/Pendidikan'>Pendidikan</Link>
+                                            <Link to='/lainnya/Pemerintahan'>Pemerintahan</Link>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
                         </nav>
                     </div>
                     <div className="col-md-3 search">
+                        
                         <div className="active-cyan-4 mb-4">
-                            <input className="form-control" type="text" placeholder="Search" aria-label="Search" />
+                            <input 
+                            className="form-control" 
+                            style={{ backgroundColor:'white', border:'1px gray solid', marginRight:'-60px'}} 
+                            type="text" 
+                            onChange={event => this.props.handleSearch(event)}
+                            placeholder='Search'
+                            aria-label="Search" />
                         </div>
+
                     </div>
                     <div className="col-md-1">
                         <img className="search1" src={logo_search} alt=""/>
@@ -54,9 +73,10 @@ class Header extends React.Component {
                         <nav>
                             <ul className="list-unstyled navigate">
                                 <li className="navi1">
-                                    <a href="">Masuk</a></li>
+                                    <Link to="/SignIn">Masuk</Link></li>
                                 <li className="navi1">
-                                    <a href="">Daftar</a></li>
+                                    <Link to='/' 
+                                    onClick={() => this.handleSignOut()}>Keluar</Link></li>
                             </ul>
                         </nav>
                     </div>

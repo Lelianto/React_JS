@@ -115,6 +115,8 @@ header {
     text-align: left;
     margin-top: -9px;
     text-decoration: none;
+    color: black !important;
+    text-decoration: none;
 }
 
 .see_all {

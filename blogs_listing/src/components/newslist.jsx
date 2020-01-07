@@ -4,6 +4,7 @@ import '../styles/bootstrap.min.css'
 import axios from 'axios';
 import '../App.css';
 import logo from '../logo.svg';
+
 const apiKey = '5df2d02cbdb648bb8853f14401e283ab';
 const baseUrl = 'https://newsapi.org/v2/'
 const urlHeadline = baseUrl + 'top-headlines?country=id&apiKey=' + apiKey;
@@ -25,6 +26,7 @@ class NewsList extends React.Component {
                 self.setState({ isLoading: false})
             })
     };
+
     render (){
         const { listNews, isLoading } = this.state;
         console.log('cek', listNews)
@@ -47,7 +49,7 @@ class NewsList extends React.Component {
                             </div>
                             <p></p>
                             <div className="col-12">
-                                <a href={item.url} className="news_title">{item.title} </a> 
+                                <a style={{textDecoration:'none'}} href={item.url} className="news_title">{item.title} </a> 
                             </div>
                         </div>
                     </div>
@@ -77,7 +79,7 @@ class NewsList extends React.Component {
                         </div>
                     </div>
                 </div>
-             {allTopList}          
+                {allTopList}          
             </div>
             }
             </div>
