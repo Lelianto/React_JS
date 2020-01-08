@@ -40,7 +40,7 @@ class NewsDetail extends React.Component {
             // console.warn('cektopeverything', topEverythings)
 
             const allEverythings = topEverythings.filter((element,i)=>(i<=4)).map((item, key) => {
-                console.log(item.urlToImage)
+                // console.log(item.urlToImage)
                 return (
                 <div className="container-fluid">
                     <div className="row">
@@ -88,4 +88,3 @@ class NewsDetail extends React.Component {
 }
 
 export default connect("listTitles, isLoading",actions)(withRouter(NewsDetail));
-// export default NewsDetail;

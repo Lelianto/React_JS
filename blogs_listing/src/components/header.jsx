@@ -8,14 +8,19 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'unistore/react'
 import { store, actions } from '../store'
 
-const listCategory = ['sport','business','health']
+const listCategory = ['Sport','Business','Health']
 
 class Header extends React.Component {
 
     handleSignOut = () => {
-        localStorage.removeItem("is_login");
+        store.setState({is_login:false});
         this.props.history.push("/");
       };
+
+    filterByCategory = (word) => {
+        this.props.checkCategory(word)
+        this.props.history.replace('/category/'+word)
+    }
 
     render (){
         return (
@@ -34,7 +39,7 @@ class Header extends React.Component {
                         <nav>
                             <ul className="list-unstyled">
                                 {listCategory.map(category=>
-                                <li onClick={event => this.props.handleCategory(category)} className="navi"> 
+                                <li onClick={() => this.filterByCategory(category)} className="navi"> 
                                   <Link>{category}</Link></li>
                                 )}
                                 <li className="navi">
@@ -42,11 +47,11 @@ class Header extends React.Component {
                                 <li className="navi">
                                     <div class="dropdown">
                                         <button class="dropbtn">
-                                            <a href="">Lainnya</a></button>
+                                            <a >Others</a></button>
                                         <div class="dropdown-content">
-                                            <Link to='/lainnya/Bisnis'>Bisnis</Link>
-                                            <Link to='/lainnya/Pendidikan'>Pendidikan</Link>
-                                            <Link to='/lainnya/Pemerintahan'>Pemerintahan</Link>
+                                            <Link to='/others/general' onClick={() => this.filterByCategory('general')}>General</Link>
+                                            <Link to='/others/education' onClick={() => this.filterByCategory('business')}>Business</Link>
+                                            <Link to='/others/government' onClick={() => this.filterByCategory('technology')}>Technology</Link>
                                         </div>
                                     </div>
                                 </li>
@@ -73,10 +78,10 @@ class Header extends React.Component {
                         <nav>
                             <ul className="list-unstyled navigate">
                                 <li className="navi1">
-                                    <Link to="/SignIn">Masuk</Link></li>
+                                    <Link to="/signin">Masuk</Link></li>
                                 <li className="navi1">
                                     <Link to='/' 
-                                    onClick={() => this.props.handleSignOut()}>Keluar</Link></li>
+                                    onClick={() => this.handleSignOut()}>Keluar</Link></li>
                             </ul>
                         </nav>
                     </div>
@@ -87,5 +92,4 @@ class Header extends React.Component {
     }
 }
 
-export default connect("stateToChangeFromPage",actions)(withRouter(Header));
-// export default Header;
+export default connect("category, isLoading",actions)(withRouter(Header));

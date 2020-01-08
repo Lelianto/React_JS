@@ -8,49 +8,19 @@ import { connect } from 'unistore/react'
 import { store, actions } from '../store'
 
 class SignIn extends React.Component {
-    state = { username: "", password: "" };
 
-    // changeStateOnStore = () => {
-    //     console.warn("CEEKKKKK")
-    //     store.setState({ stateToChangeFromPage: "sudah berubah" });
-    //   };
-
-    changeInput = e => {
-        this.setState({ [e.target.name]: e.target.value });
-    };
-    postLogin = () => {
-        const { username, password } = this.state;
-        const mydata = {
-            username: username,
-            password: password
-        };
-        const self=this;
-        axios
-            .post("https://myendpoint.free.beeceptor.com/signin", mydata)
-            .then(response => {
-                console.warn('cek this', this)
-                console.log(response.data);
-                if (response.data.hasOwnProperty("accKey")) {
-                localStorage.setItem("accKey", response.data.accKey);
-                localStorage.setItem("is_login", true);
-                localStorage.setItem("email", 'lian@alterra.id');
-                localStorage.setItem("username", response.data.username);
-                console.log(self.props)
-                self.props.history.push("/");
-                }
-        })
-            .catch(error => {
-                console.log("ini Error", error);
-        });
-    };
+    doLogin = async () => {
+        await this.props.postLogin()
+        console.warn('string cek', this.props.is_login)
+        if (this.props.is_login){
+            this.props.history.push("/profile");
+        }
+    }
 
     render() {
         return (
         <div className="wrapper fadeInDown">
             <div id="formContent">
-                {/* <!-- Tabs Titles --> */}
-
-                {/* <!-- Icon --> */}
                 <div className="fadeIn first">
                 <img src={logo} id="icon" alt="User Icon" />
                 </div>
@@ -61,22 +31,21 @@ class SignIn extends React.Component {
                         type="text" 
                         id="login" 
                         className="fadeIn second" 
-                        name="login" 
+                        name="username" 
                         placeholder="Masukkan username"
-                        // onClick={() => this.changeStateOnStore()} 
-                        onChange={e => this.changeInput(e)} />
+                        onChange={e => this.props.changeInput(e)} />
                         <input 
                         type="text" 
                         id="password" 
                         className="fadeIn third" 
-                        name="login" 
+                        name="password" 
                         placeholder="Masukkan password"
-                        onChange={e => this.changeInput(e)} />
+                        onChange={e => this.props.changeInput(e)} />
                         <input 
                         type="submit" 
                         className="fadeIn fourth" 
                         value="Masuk" 
-                        onClick={() => this.postLogin()}/>
+                        onClick={this.doLogin}/>
                     </form>
 
                 {/* <!-- Remind Passowrd --> */}
@@ -90,6 +59,4 @@ class SignIn extends React.Component {
     }
 }
 
-export default connect("username, password",actions)(withRouter(SignIn));
-
-// export default SignIn;
+export default connect("username, password, is_login",actions)(withRouter(SignIn));
