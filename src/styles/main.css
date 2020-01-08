@@ -218,5 +218,10 @@ header {
     background-color: ghostwhite;
   }
 
-
+@media only screen and (max-width: 412px) {
+    .image_article {
+        /* width: 634px; */
+        width: 100%;
+    }
+  }
 
