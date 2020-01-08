@@ -18,7 +18,7 @@ class NewsDetail extends React.Component {
                 }
                 return false
             });
-
+            
             const allEverythings = topEverythings.filter((element,i)=>(i<=4)).map((item, key) => {
                 console.log(item.urlToImage)
                 return (
@@ -60,7 +60,9 @@ class NewsDetail extends React.Component {
                     </div>
                     </div>
     
-                  </div> : allEverythings}
+                  </div> 
+                  : allEverythings
+                  }
                 </div>
             )
     }
