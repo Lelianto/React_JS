@@ -1,14 +1,17 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import SignIn from "../components/signin";
-import Header from "../components/header"
+import Header from "../components/header";
+import { withRouter } from 'react-router-dom';
+import { connect } from 'unistore/react';
+import { store, actions } from '../store';
 
 const Profile = props => {
-  const is_login = JSON.parse(localStorage.getItem("is_login"));
-  const email = localStorage.getItem("username");
-  const full_name = localStorage.getItem("email");
-  console.warn("is_login", is_login);
-  if (is_login === null) {
+  console.warn("is_login", props);
+  const is_login = props.is_login;
+  const email = props.email;
+  const full_name = props.username;
+  if (is_login === false) {
     return <Redirect to={{ pathname: "/signin" }} />;
   } else {
     return (
@@ -41,4 +44,5 @@ const Profile = props => {
   }
 };
 
-export default Profile;
+// export default Profile;
+export default connect("is_login, email, username",actions)(withRouter(Profile));
