@@ -17,7 +17,6 @@ class Header extends React.Component {
       };
 
     render (){
-        const { clickTab } = this.props
         return (
         <header>
             <div className="container-fluid">

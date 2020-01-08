@@ -13,7 +13,7 @@ const Profile = props => {
   } else {
     return (
       <React.Fragment>
-        <Header handleSearch={this.handleSearch} handleCategory={this.handleCategory}/>
+        <Header/>
         <section className="content">
           <h1
             style={{
