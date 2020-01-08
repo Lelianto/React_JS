@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/bootstrap.min.css'
 import '../styles/main.css';
 import '../App.css';
-import logo from '../logo.svg';
+import logo from '../images/logo.svg';
 import tool1 from '../images/love.png'
 import tool2 from '../images/share.png'
 import tool3 from '../images/dislike.png'

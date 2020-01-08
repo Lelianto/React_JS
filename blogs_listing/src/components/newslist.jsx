@@ -3,7 +3,7 @@ import '../styles/main.css';
 import '../styles/bootstrap.min.css'
 import axios from 'axios';
 import '../App.css';
-import logo from '../logo.svg';
+import logo from '../images/logo.svg';
 
 const apiKey = '5df2d02cbdb648bb8853f14401e283ab';
 const baseUrl = 'https://newsapi.org/v2/'

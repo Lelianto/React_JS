@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/main-2.css';
 import '../styles/bootstrap.min.css'
 import axios from 'axios';
-import logo from '../logo.svg'
+import logo from '../images/logo.svg'
 
 class SignIn extends React.Component {
     state = { Email: "", password: "" };
@@ -35,7 +35,6 @@ class SignIn extends React.Component {
                 console.log("ini Error", error);
         });
     };
-
 
     render() {
         return (
