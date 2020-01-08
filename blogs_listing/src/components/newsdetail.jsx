@@ -6,19 +6,39 @@ import logo from '../images/logo.svg';
 import tool1 from '../images/love.png'
 import tool2 from '../images/share.png'
 import tool3 from '../images/dislike.png'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'unistore/react'
+import { store, actions } from '../store'
+import axios from 'axios'
+
+const apiKey = '5df2d02cbdb648bb8853f14401e283ab';
+const baseUrl = 'https://newsapi.org/v2/'
+const urlEverything = baseUrl + 'everything?q=bitcoin&apiKey=' + apiKey;
 
 class NewsDetail extends React.Component {
 
+    componentDidMount = () => {
+        axios
+            .get(urlEverything)
+            .then(function (response) {
+                store.setState({ listTitles: response.data.articles, isLoading:false})
+            })
+            .catch(function (error){
+                store.setState({ isLoading: false})
+            })
+    };
+
     render (){
             const { listTitles, isLoading } = this.props;
-            console.warn('cek', listTitles)
+            // console.warn('cek', isLoading)
             const topEverythings = listTitles.filter(item => {
                 if (item.urlToImage!== null && item.title !== null && item.description !== null) {
                     return item;
                 }
                 return false
             });
-            
+            // console.warn('cektopeverything', topEverythings)
+
             const allEverythings = topEverythings.filter((element,i)=>(i<=4)).map((item, key) => {
                 console.log(item.urlToImage)
                 return (
@@ -53,7 +73,6 @@ class NewsDetail extends React.Component {
             return (
                 <div className="everythingNews">
                   {isLoading ? <div style={{ textAlign:'center'}}> 
-                  
                   <div className="App">
                     <div className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
@@ -68,4 +87,5 @@ class NewsDetail extends React.Component {
     }
 }
 
-export default NewsDetail;
+export default connect("listTitles, isLoading",actions)(withRouter(NewsDetail));
+// export default NewsDetail;

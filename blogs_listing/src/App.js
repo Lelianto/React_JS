@@ -2,12 +2,19 @@ import React from 'react';
 import './App.css';
 // import FirstPage from './pages/index'
 import MainRoute from './routes/mainroute';
-
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'unistore/react'
+import { store } from './store'
+ 
 function App() {
   return (
-    <div className="App">
-      <MainRoute />
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className="App">
+          <MainRoute />
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

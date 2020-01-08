@@ -4,8 +4,9 @@ import '../styles/bootstrap.min.css'
 import logo from '../images/react.svg'
 import logo_search from '../images/search.png'
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import axios from 'axios'
-import PropTypes from "prop-types";
+import { withRouter } from 'react-router-dom'
+import { connect } from 'unistore/react'
+import { store, actions } from '../store'
 
 const listCategory = ['sport','business','health']
 
@@ -75,7 +76,7 @@ class Header extends React.Component {
                                     <Link to="/SignIn">Masuk</Link></li>
                                 <li className="navi1">
                                     <Link to='/' 
-                                    onClick={() => this.handleSignOut()}>Keluar</Link></li>
+                                    onClick={() => this.props.handleSignOut()}>Keluar</Link></li>
                             </ul>
                         </nav>
                     </div>
@@ -86,4 +87,5 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export default connect("stateToChangeFromPage",actions)(withRouter(Header));
+// export default Header;

@@ -4,39 +4,38 @@ import '../styles/bootstrap.min.css'
 import axios from 'axios';
 import '../App.css';
 import logo from '../images/logo.svg';
+import { withRouter } from 'react-router-dom'
+import { connect } from 'unistore/react'
+import { store, actions } from '../store'
 
 const apiKey = '5df2d02cbdb648bb8853f14401e283ab';
 const baseUrl = 'https://newsapi.org/v2/'
 const urlHeadline = baseUrl + 'top-headlines?country=id&apiKey=' + apiKey;
 
 class NewsList extends React.Component {
-    state = {
-        listNews: [],
-        isLoading: true
-    };
 
     componentDidMount = () => {
         const self = this
         axios
             .get(urlHeadline)
             .then(function (response) {
-                self.setState({ listNews: response.data.articles, isLoading:false})
+                store.setState({ listNews: response.data.articles, isLoading:false})
             })
             .catch(function (error){
-                self.setState({ isLoading: false})
+                store.setState({ isLoading: false})
             })
     };
 
     render (){
-        const { listNews, isLoading } = this.state;
-        console.log('cek', listNews)
+        const { listNews, isLoading } = this.props;
+        // console.log('cek', listNews)
         const topHeadlines = listNews.filter(item => {
             if (item.content !== null && item.image !== null) {
                 return item;
             }
             return false
         });
-
+        // console.log('cektophead', topHeadlines)
     const allTopList = topHeadlines.filter((element,i)=>(i<=4)).map((item, key) => {
         return (
             <div>
@@ -49,7 +48,8 @@ class NewsList extends React.Component {
                             </div>
                             <p></p>
                             <div className="col-12">
-                                <a style={{textDecoration:'none'}} href={item.url} className="news_title">{item.title} </a> 
+                                <a style={{textDecoration:'none'}} href={item.url} 
+                                className="news_title">{item.title} </a> 
                             </div>
                         </div>
                     </div>
@@ -87,4 +87,6 @@ class NewsList extends React.Component {
     }
 }
 
-export default NewsList;
+export default connect("listNews, isLoading",actions)(withRouter(NewsList));
+
+// export default NewsList;

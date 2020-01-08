@@ -28,23 +28,6 @@ class FirstPage extends Component {
           })
   };
 
-  handleSearch = async (event) => {
-      console.warn('event', event.target.value)
-      await this.getNewsBySearch(event.target.value)
-  }
-
-  getNewsBySearch = (keyword) => {
-    const self = this
-    axios
-        .get(baseUrl + 'everything?q=' + keyword +'&apiKey=' + apiKey)
-        .then(function (response) {
-            self.setState({ listTitles: response.data.articles, isLoading:false})
-        })
-        .catch(function (error){
-            self.setState({ isLoading: false})
-        })
-  }
-
   handleCategory = async (event) => {
       console.warn('event', event)
       await this.setState({category: event, isLoading: true})
@@ -66,10 +49,9 @@ class FirstPage extends Component {
   }
 
       render() {
-          console.warn('cek render', this.state.waiting)
           return (
             <div>
-                <Header {...this.props} handleSearch={this.handleSearch} handleCategory={this.handleCategory} />
+                <Header {...this.props} handleCategory={this.handleCategory}/>
                 <div className="container">
                   <div className="row">
                   <div className="col-md-4">
@@ -77,7 +59,7 @@ class FirstPage extends Component {
                   </div>
                   <div className="col-md-1"></div>
                   <div className="col-md-7">
-                    <NewsDetail listTitles={this.state.listTitles} isLoading={this.state.isLoading} />
+                    <NewsDetail listTitles={this.state.listTitles}/>
                   </div>
                   </div>
                 </div>

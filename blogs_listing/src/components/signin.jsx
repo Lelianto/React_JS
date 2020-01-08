@@ -2,10 +2,18 @@ import React from 'react';
 import '../styles/main-2.css';
 import '../styles/bootstrap.min.css'
 import axios from 'axios';
-import logo from '../images/logo.svg'
+import logo from '../images/logo.svg';
+import { withRouter } from 'react-router-dom'
+import { connect } from 'unistore/react'
+import { store, actions } from '../store'
 
 class SignIn extends React.Component {
-    state = { Email: "", password: "" };
+    state = { username: "", password: "" };
+
+    // changeStateOnStore = () => {
+    //     console.warn("CEEKKKKK")
+    //     store.setState({ stateToChangeFromPage: "sudah berubah" });
+    //   };
 
     changeInput = e => {
         this.setState({ [e.target.name]: e.target.value });
@@ -55,6 +63,7 @@ class SignIn extends React.Component {
                         className="fadeIn second" 
                         name="login" 
                         placeholder="Masukkan username"
+                        // onClick={() => this.changeStateOnStore()} 
                         onChange={e => this.changeInput(e)} />
                         <input 
                         type="text" 
@@ -81,4 +90,6 @@ class SignIn extends React.Component {
     }
 }
 
-export default SignIn;
+export default connect("username, password",actions)(withRouter(SignIn));
+
+// export default SignIn;
